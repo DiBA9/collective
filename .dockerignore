@@ -1,0 +1,5 @@
+# Ignore local virtual environment (use the Docker volume instead)
+.venv/
+
+# Ignore local application data (use the Docker volume instead)
+data/
