@@ -7,7 +7,6 @@ services:
       dockerfile: Dockerfile
     restart: always
     volumes:
-      - ./src:/app/src  # Live sync local files
       - collective_data:/app/data  # Custom named persistent storage for app data
       - collective_env:/app/.venv  # Custom named persistent Poetry virtual environment
     environment:
