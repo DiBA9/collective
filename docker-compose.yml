@@ -1,30 +1,30 @@
 services:
-  collective_app:
-    container_name: collective_con
-    image: collective_img  # Custom image name
+  collective-app:
+    container_name: collective-con
+    image: collective-img  # Custom image name
     build:
       context: .
       dockerfile: Dockerfile
     restart: always
     volumes:
-      - collective_data:/app/data  # Custom named persistent storage for app data
-      - collective_env:/app/.venv  # Custom named persistent Poetry virtual environment
+      - collective-data:/app/data  # Custom named persistent storage for app data
+      - collective-env:/app/.venv  # Custom named persistent Poetry virtual environment
     environment:
-      - ENV_VARIABLE=collective_var
+      - ENV_VARIABLE=collective-var
     ports:
       - "8000:8000"
     working_dir: /app
     command: ["/bin/bash", "-c", "while true; do sleep 30; done"]  # Keeps container running
     networks:
-      - collective_net
+      - collective-net
 
 volumes:
-  collective_data:
-    name: collective_data
-  collective_env:
-    name: collective_env
+  collective-data:
+    name: collective-data
+  collective-env:
+    name: collective-env
 
 networks:
-  collective_net:
-    name: collective_net
+  collective-net:
+    name: collective-net
     driver: bridge
